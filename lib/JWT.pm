@@ -35,7 +35,9 @@ L<http://github.com/pangyre/p5-jwt>.
 
 =head1 See Also
 
-L<>, L<>...
+L<http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-08>, L<https://developers.google.com/wallet/digital/docs/jwtdecoder>...
+
+
 
 =head1 Author
 
