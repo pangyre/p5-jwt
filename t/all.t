@@ -10,7 +10,7 @@ use Encode;
 
 require_ok("JWT");
 
-subtest "draft-ietf-oauth-json-web-token-08" => sub {
+subtest "https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-08" => sub {
     my $ex_jwt_header = encode_base64url qq|{"typ":"JWT",\015\012 "alg":"HS256"}|;
     my $base64_header = 'eyJ0eXAiOiJKV1QiLA0KICJhbGciOiJIUzI1NiJ9';
     is $ex_jwt_header, $base64_header,
@@ -25,11 +25,13 @@ subtest "draft-ietf-oauth-json-web-token-08" => sub {
 
     is $ex_jwt_claims, $base64_claims, "Spec claims encodes to base64";
 
+    # https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40
+    # https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41
     # Computing the HMAC of the JWS Signing Input ASCII(BASE64URL(UTF8(JWS
     # Protected Header)) || '.' || BASE64URL(JWS Payload)) with the HMAC
     # SHA-256 algorithm using the key specified in Appendix A.1 and
     # base64url encoding the result yields this BASE64URL(JWS Signature) value:
-    subtest "draft-ietf-jose-json-web-signature-41" => sub {
+    subtest "https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41" => sub {
         my $base64_sig = 'dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk';
         # If previous tests passed, then this is fine compared to
         # constructing it from raw strings.
